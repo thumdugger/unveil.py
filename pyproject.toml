@@ -27,13 +27,12 @@ dependencies = [
     "click"
     , "pillow"
     , "tomli"
-    ,
-]
+    , ]
 
-optional_dependencies = [
+[project.optional-dependencies]
+win = [
     "colorama"
-    ,
-]
+    , ]
 
 [project.scripts]
-camerpi = "astro.unveil.__main__:unveil"
+unveil = "astro.unveil.cli:unveil_grp"
