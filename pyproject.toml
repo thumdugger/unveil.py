@@ -1,0 +1,39 @@
+[build-system]
+requires = ['setuptools', 'wheel']
+build-backend = 'setuptools.build_meta'
+
+[tool.setuptools.packages.find]
+where = ["src"]
+include = ["astro"]
+namespaces = true
+
+[project]
+name = "unveil.py"
+version = "2023.11.23"
+description = "Astrophotography utility to rename image stacks based on file metadata."
+requires-python = ">=3.9"
+license = { text = "GNU Affero General Public License v3"}
+classifiers=[
+    'Development Status :: 4 - Beta',
+    'License :: OSI Approved :: GNU Affero General Public License v3',
+    'Operating System :: OS Independent',
+    'Programming Language :: Python :: 3',
+    'Programming Language :: Python :: 3.9',
+    'Programming Language :: Python :: 3.10',
+    'Programming Language :: Python :: 3.11',
+    'Programming Language :: Python :: 3.12',
+]
+dependencies = [
+    "click"
+    , "pillow"
+    , "tomli"
+    ,
+]
+
+optional_dependencies = [
+    "colorama"
+    ,
+]
+
+[project.scripts]
+camerpi = "astro.unveil.__main__:unveil"
