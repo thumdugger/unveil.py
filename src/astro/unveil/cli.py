@@ -1,4 +1,4 @@
-# unveil.py is an astrophotography utility to rename image stacks based on file metadata.
+# cli.py is an astrophotography utility to rename image stacks based on file metadata.
 # Copyright (C) 2023  Scott Barnett
 #
 # This program is free software: you can redistribute it and/or modify
@@ -15,3 +15,20 @@
 # along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
 import click
+
+
+@click.group("unveil")
+@click.option(
+    "--verbose", "-v", "verbosity", count=True
+    , help="Increases verbosity level by one each time option is used")
+@click.pass_context
+def unveil_grp(ctx, verbosity) -> None:
+    """Renames image stacks based on file metadata"""
+
+    ctx.obj = {
+        'verbosity': verbosity
+        , }
+
+
+if __name__ == "__main__":
+    unveil_grp()
